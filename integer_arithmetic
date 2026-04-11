@@ -1,0 +1,152 @@
+#task1
+a = 179
+b = 971
+c = (a**2 + b**2)**0.5
+
+print(c)
+
+#task2
+v = int(input())
+t = int(input())
+s = 109
+
+length = s
+position = (v * t)%length
+
+print(position)
+
+#task3
+number = int(input())
+lastDigit = number%10
+
+print(lastDigit)
+
+#task4
+n = int(input()) # Например, 42
+print(n // 10)   # Результат: 4
+
+#task5
+n = int(input())
+print(n + 2 - n % 2)
+
+#task6
+a = int(input())
+b = int(input())
+c = int(input())
+d = int(input())
+
+pair = (a+1)//2 + (b+1)//2 + (c+1)//2 + (d+1)//2
+print(pair)
+
+#task7
+n = int(input())
+total_minutes = n%1440
+hours = total_minutes//60
+minutes = total_minutes%60
+
+print(hours, minutes)
+
+#task8
+n = int(input())
+total_seconds = n%86400
+h = total_seconds//3600
+m = (h//60)%60
+s = n%60
+
+print(f"{h}:{m:02d}:{s:02d}")
+
+#task9
+a = int(input())
+b = int(input())
+temp = a
+a = b
+b = temp
+
+print(a,b)
+
+#task10
+a = int(input())
+b = int(input())
+a, b = b, a
+
+print(a,b)
+
+#task11
+n = int(input())
+
+# Константы из условия
+start_minutes = 600  # 10:00
+lesson_duration = 55
+break_short = 15
+break_long = 25
+
+# Считаем количество перерывов
+total_breaks = n - 1
+long_breaks_count = total_breaks // 2
+short_breaks_count = total_breaks - long_breaks_count
+
+# Считаем итоговые минуты
+finish_time = start_minutes + (n * lesson_duration) + \
+              (long_breaks_count * break_long) + \
+              (short_breaks_count * break_short)
+
+# Переводим в часы и минуты
+h = finish_time // 60
+m = finish_time % 60
+
+print(h, m)
+
+#task12
+a = int(input()) # tenge
+b = int(input()) # tiyn
+n = int(input())
+
+tiyn = a * 100 + b 
+total_tiyn = tiyn * n
+
+tenge = total_tiyn//100
+rem_tiyn = total_tiyn%100
+
+print(tenge, rem_tiyn)
+
+#task13
+h1 = int(input())
+m1 = int(input())
+s1 = int(input())
+
+h2 = int(input())
+m2 = int(input())
+s2 = int(input())
+
+total_seconds1 = h1 * 3600 + m1 * 60 + s1
+total_seconds2 = h2 * 3600 + m2 * 60 + s2
+
+Total = total_seconds2 - total_seconds1
+
+print(Total)
+
+#task14
+n = int(input())
+k = int(input())
+
+n = n - (k%n)
+
+print(n)
+
+#task15
+h = int(input())
+a = int(input())
+b = int(input())
+
+days = (((h - a)+(a-b) - 1)//(a-b)) + 1
+
+print(days)
+
+#task16
+a = int(input())
+b = int(input())
+
+check = (a%b) * (b%a)
+result = int(check == 0)
+
+print(result)
