@@ -1,0 +1,137 @@
+#task1
+# Проверяем все три состояния: >, < или ==
+a = int(input())
+b = int(input())
+
+if(a>b):
+    print(1)
+if(b>a):
+    print(2)
+else:
+    print(0)
+
+#task2
+x = int(input())
+
+if(x>0):
+    print(1)
+elif(x<0):
+    print(-1)
+else:
+    print(0)
+
+#task3
+# Год високосный, если (делится на 4 И НЕ на 100) ИЛИ (делится на 400)
+year = int(input())
+
+if(year%4==0 and year%100!=0) or (year%400==0):
+    print("YES")
+else:
+    print("NO")
+
+#task4
+# Теорема: любая сторона должна быть меньше суммы двух других
+a = int(input())
+b = int(input())
+c = int(input())
+
+if(a+b > c) and (a+c > b) and (b+c > a):
+    print("YES")
+else:
+    print("NO")
+
+#task5
+x1 = int(input())
+y1 = int(input()) # Сначала считываем координаты ПЕРВОЙ клетки
+x2 = int(input())
+y2 = int(input()) # Затем координаты ВТОРОЙ клетки
+
+# Проверяем: либо они в одном столбце, либо в одной строке
+if x1 == x2 or y1 == y2:
+    print("YES")
+else:
+    print("NO")
+
+#task6
+x1 = int(input())
+y1 = int(input()) 
+x2 = int(input())
+y2 = int(input()) 
+# Король ходит на 1 клетку в любую сторону
+# Расстояние по X и по Y должно быть <= 1
+if abs(x1 - x2) <= 1 and abs(y1 - y2) <= 1:
+    print("YES")
+else:
+    print("NO")
+
+#task7
+# Слон идет по диагонали. На любой диагонали расстояние по горизонтали 
+# всегда равно расстоянию по вертикали
+x1 = int(input())
+y1 = int(input()) 
+x2 = int(input())
+y2 = int(input()) 
+
+if abs(x1 - x2) == abs(y1 - y2):
+    print("YES")
+else:
+    print("NO")
+
+#task8
+# На доске цвета чередуются. Если сумма координат (x + y) четная — клетка одного цвета, 
+# если нечетная — другого. Проверяем, совпадает ли остаток от деления на 2
+x1 = int(input())
+y1 = int(input()) 
+x2 = int(input())
+y2 = int(input()) 
+
+if abs(x1 + y2)%2 == abs(y1 + x2)%2:
+    print("YES")
+else:
+    print("NO")
+
+#task9
+n = int(input())
+
+if 11 <= n <=14:
+    print(n, "korov")
+elif n%10 == 1:
+    print(n, "korova")
+elif 2 <= n%10 <= 4:
+    print(n, "korovy")
+else:
+    print(n, "korov")
+
+#task10
+n = int(input())
+
+t60 = n//60 # Сколько целых билетов по 60
+rem60 = n%60 # Сколько поездок осталось после билетов по 60
+
+t10 = rem60//10 # Сколько целых билетов по 10 из остатка
+t1 = rem60%10 # Оставшиеся одиночные поездки
+
+if t1*15 >= 125: # Если стоимость одиночных (t1 * 15) стала >= 125 (цена билета на 10)
+    t10 += 1
+    t1 = 0
+if t10*125 + t1*15 >= 440: # Проверяем общую стоимость "мелочи" и сравниваем с ценой билета на 60 (440)
+    t60 += 1
+    t10 = 0
+    t1 = 0
+
+print(t1, t10, t60)
+
+#task11
+k = int(input())
+m = int(input())
+n = int(input())
+
+if n==0:
+    print(0)
+# Если котлет меньше или столько же, сколько мест
+elif n <= k:
+    print(2*m)
+# В остальных случаях используем формулу "Ceiling Division"
+else:
+    res = ((2 * n + k - 1) // k) * m
+    print(res)
